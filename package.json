@@ -5,10 +5,12 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "typeorm": "cross-env TS_NODE_PROJECT=tsconfig.typeorm.json TS_NODE_TRANSPILE_ONLY=true ts-node ./node_modules/typeorm/cli.js"
   },
   "dependencies": {
     "next": "9.4.4",
+    "pg": "^8.3.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "typeorm": "^0.2.25"
@@ -16,6 +18,8 @@
   "devDependencies": {
     "@types/node": "^14.0.26",
     "@types/react": "^16.9.43",
+    "cross-env": "^7.0.2",
+    "ts-node": "^8.10.2",
     "typescript": "^3.9.7"
   }
 }
