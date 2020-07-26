@@ -7,9 +7,20 @@
       "target": "es5",
       "module": "commonjs",
       "moduleResolution": "node",
-      "outDir": "./build",
+      "noEmit": false,
+      "outDir": ".typeorm",
       "emitDecoratorMetadata": true,
       "experimentalDecorators": true,
-      "sourceMap": true
-   }
+      "sourceMap": true,
+      "baseUrl": "src",
+      "rootDir": "src"
+   },
+   "include": [
+      "src/models/*.ts",
+      "src/migrations/*ts",
+      "src/subscribers/*ts"
+   ],
+   "exclude": [
+      "node_modules"
+    ]
 }
