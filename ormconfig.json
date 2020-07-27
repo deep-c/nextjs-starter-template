@@ -6,19 +6,5 @@
    "password": "password",
    "database": "nextapp",
    "synchronize": true,
-   "logging": true,
-   "entities": [
-      "src/models/*.{js,ts}"
-   ],
-   "migrations": [
-      "src/migrations/*.{js,ts}"
-   ],
-   "subscribers": [
-      "src/subscribers/*.{js,ts}"
-   ],
-   "cli": {
-      "entitiesDir": "src/models",
-      "migrationsDir": "src/migrations",
-      "subscribersDir": "src/subscribers"
-   }
+   "logging": true
 }

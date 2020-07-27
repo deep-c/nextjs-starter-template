@@ -7,8 +7,6 @@
       "target": "es5",
       "module": "commonjs",
       "moduleResolution": "node",
-      "noEmit": false,
-      "outDir": ".typeorm",
       "emitDecoratorMetadata": true,
       "experimentalDecorators": true,
       "sourceMap": true,
