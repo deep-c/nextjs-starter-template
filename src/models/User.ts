@@ -18,6 +18,10 @@ export const UserSchema = {
         phoneNumber: {
             type: "varchar",
             nullable: true
+        },
+        dob: {
+            type: "date",
+            nullable: true
         }
     }
 }

@@ -2,20 +2,8 @@ import {NextApiRequest, NextApiResponse} from 'next'
 import NextAuth from 'next-auth'
 import Providers from 'next-auth/providers'
 import Adapters from "next-auth/adapters"
-import ormconfig from '@project/ormconfig.json'
-import Models from 'models'
-
-// Construct our own object so that we dont use the path references for
-// entities, migrations etc since those are relative and wont work if passed.
-const dbConfig = {
-    type: ormconfig.type,
-    host: ormconfig.host,
-    port: ormconfig.port,
-    username: ormconfig.username,
-    password: ormconfig.password,
-    database: ormconfig.database,
-    synchronize: ormconfig.synchronize,
-}
+import Models from '@/models'
+import {baseDbConfig} from '@/utils/config'
 
 const options = {
     providers: [
@@ -26,7 +14,7 @@ const options = {
         }),
     ],
     adapter: Adapters.TypeORM.Adapter(
-        dbConfig,
+        baseDbConfig,
         {
             models: {
                 User: Models.User,
@@ -35,7 +23,7 @@ const options = {
     ),
     secret: process.env.SECRET,
     debug: process.env.DEBUG,
-    database: dbConfig,
+    database: baseDbConfig,
 }
 
 export default(req : NextApiRequest, res : NextApiResponse) => NextAuth(req, res, options)
