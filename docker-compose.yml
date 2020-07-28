@@ -14,15 +14,23 @@ services:
   app:
     build:
       context: .
+      args:
+        NODE_ENV: ${NODE_ENV}
     ports:
       - 3000:3000
     env_file: .env
     command: npm run dev
+    init: true
     volumes:
-        - /usr/src/app/node_modules
+      - yarn:/home/node/.cache/yarn
+      - ./src:/usr/src/app/src
+      - ./package.json:/usr/src/app/package.json
+      - ./yarn.lock:/usr/src/app/yarn.lock
+      - /usr/src/app/node_modules
     restart: always
     depends_on:
       - db
 
 volumes:
   pg-data:
+  yarn:
