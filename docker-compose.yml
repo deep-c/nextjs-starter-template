@@ -24,6 +24,8 @@ services:
     volumes:
       - yarn:/home/node/.cache/yarn
       - ./src:/usr/src/app/src
+      - ./config:/usr/src/app/config
+      - ./tests:/usr/src/app/tests
       - ./package.json:/usr/src/app/package.json
       - ./yarn.lock:/usr/src/app/yarn.lock
       - /usr/src/app/node_modules
