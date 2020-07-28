@@ -6,6 +6,8 @@ Create .env file
 
 ```bash
 # General
+NODE_ENV= development
+
 SECRET=3qkjiJFQO(@)adqer/
 
 DEBUG=true
