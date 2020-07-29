@@ -53,7 +53,7 @@ Run the development environment:
 docker-compose up -d
 
 # Currently there isnt a straightforward way to mount the node_modules folder on the host
-# Manually copy the folder out such that Typescript and IDE's can find the type declarations
+# Manually copy the folder such that Typescript and IDE's can find the type declarations
 # If changes are made to node_modules inside the container run the command again.
 # https://stackoverflow.com/questions/38425996/docker-compose-volume-on-node-modules-but-is-empty
 sudo docker cp "$(docker-compose ps -q app)":/usr/src/app/node_modules .
@@ -76,5 +76,5 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - [Docker](https://docs.docker.com/reference/)
 - [Yarn](https://classic.yarnpkg.com/en/docs/)
 
-Created from template [deep-c/nextjs-app-template](https://github.com/deep-c/nextjs-app-template)
+Created from [deep-c/nextjs-app-template](https://github.com/deep-c/nextjs-app-template)
 
