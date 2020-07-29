@@ -64,6 +64,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 - [Next.js](https://nextjs.org/docs)
 - [NextAuth.js](https://github.com/nextauthjs/next-auth)
+- [TypeORM](https://typeorm.io/#/)
 - [React](https://reactjs.org/docs/getting-started.html)
 - [Typescript](https://www.typescriptlang.org/docs/home.html)
 - [Jest](https://jestjs.io/docs/en/getting-started.html)
