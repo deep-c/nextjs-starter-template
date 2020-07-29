@@ -1,4 +1,9 @@
 ## Getting Started
+Install the following modules:
+
+```bash
+npm install -g lint-staged husky
+```
 
 Create .env file
 
