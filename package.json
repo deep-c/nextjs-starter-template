@@ -12,7 +12,7 @@
     "test:coverage": "jest --config=config/jest/jest.config.js --coverage"
   },
   "dependencies": {
-    "next": "9.4.4",
+    "next": "9.5.0",
     "next-auth": "deep-c/next-auth#development-hmr",
     "pg": "^8.3.0",
     "react": "16.13.1",
