@@ -1,7 +1,7 @@
 export function process() {
-  return 'module.exports = {};'
+    return 'module.exports = {};';
 }
 
 export function getCacheKey() {
-  return 'cssTransform'
+    return 'cssTransform';
 }

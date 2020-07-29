@@ -6,4 +6,4 @@ export const baseDbConfig = {
     password: process.env.TYPEORM_PASSWORD,
     database: process.env.TYPEORM_DATABASE,
     synchronize: process.env.TYPEORM_SYNCHRONIZE,
-}
+};
