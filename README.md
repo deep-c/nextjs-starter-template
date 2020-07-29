@@ -3,6 +3,8 @@ Install the following nodejs modules:
 
 ```bash
 npm install -g lint-staged husky
+# or
+yarn global add lint-staged husky
 ```
 
 Create .env file
