@@ -11,7 +11,11 @@
         "moduleResolution": "node",
         "lib": ["es2017", "dom"],
         "typeRoots": ["node_modules/@types", "src/@types"],
-        "allowJs": true
+        "allowJs": true,
+        "baseUrl": "src",
+        "paths": {
+          "@/*": ["*"]
+        }
     },
     "exclude": ["node_modules", "out", ".next"]
 }
