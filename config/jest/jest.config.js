@@ -9,6 +9,7 @@ module.exports = {
     },
     transformIgnorePatterns: ['/node_modules/', '^.+\\.module\\.(css|sass|scss)$'],
     moduleNameMapper: {
+        '^@/(.*)$': '<rootDir>/src/$1',
         '^.+\\.module\\.(css|sass|scss)$': 'identity-obj-proxy',
     },
     setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.ts'],
