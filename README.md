@@ -1,5 +1,5 @@
 ## Getting Started
-Install the following modules:
+Install the following nodejs modules:
 
 ```bash
 npm install -g lint-staged husky
@@ -50,11 +50,9 @@ Run the development environment:
 ```bash
 docker-compose up -d
 
-# Currently there isnt a straightforward way to mount the node_modules folder on the
-# host along with the whole app directory without volume mounting individual files
+# Currently there isnt a straightforward way to mount the node_modules folder on the host
 # Manually copy the folder out such that Typescript and IDE's can find the type declarations
 # If changes are made to node_modules inside the container run the command again.
-# May require running with sudo
 # https://stackoverflow.com/questions/38425996/docker-compose-volume-on-node-modules-but-is-empty
 sudo docker cp "$(docker-compose ps -q app)":/usr/src/app/node_modules .
 ```
