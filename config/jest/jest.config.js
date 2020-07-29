@@ -1,5 +1,6 @@
 module.exports = {
     collectCoverageFrom: ['src/**/*.{js,jsx,ts,tsx}', '!**/*.d.ts', '!**/node_modules/**'],
+    coverageDirectory: '.coverage',
     moduleFileExtensions: ['ts', 'tsx', 'js'],
     testPathIgnorePatterns: ['/node_modules/', '/.next/'],
     transform: {
