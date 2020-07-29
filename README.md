@@ -73,3 +73,5 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - [Docker](https://docs.docker.com/reference/)
 - [Yarn](https://classic.yarnpkg.com/en/docs/)
 
+Created from template [deep-c/nextjs-app-template](https://github.com/deep-c/nextjs-app-template)
+
