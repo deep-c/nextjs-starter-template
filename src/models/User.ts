@@ -4,7 +4,7 @@ import { TypeORM } from 'next-auth/adapters';
 export default class User extends TypeORM.Models.User.model {
     // You can extend the options in a model but you should not remove the base
     // properties or change the order of the built-in options on the constructor
-    constructor(name, email, image, emailVerified) {
+    constructor(name: string, email: string, image?: string, emailVerified?: string) {
         super(name, email, image, emailVerified);
     }
 }
