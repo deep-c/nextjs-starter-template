@@ -1,4 +1,5 @@
 ## Getting Started
+
 Install the following nodejs modules:
 
 ```bash
@@ -43,7 +44,7 @@ TYPEORM_SYNCHRONIZE=true
 
 TYPEORM_LOGGING=true
 
-TYPEORM_DEBUG= true
+TYPEORM_DEBUG=true
 
 ```
 
@@ -61,20 +62,19 @@ sudo docker cp "$(docker-compose ps -q app)":/usr/src/app/node_modules .
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-
 ## Libraries and technologies used
 
-- [Next.js](https://nextjs.org/docs)
-- [NextAuth.js](https://github.com/nextauthjs/next-auth)
-- [TypeORM](https://typeorm.io/#/)
-- [React](https://reactjs.org/docs/getting-started.html)
-- [Typescript](https://www.typescriptlang.org/docs/home.html)
-- [Jest](https://jestjs.io/docs/en/getting-started.html)
-- [Enzyme](https://enzymejs.github.io/enzyme/)
-- [ESLint-Typescript](https://github.com/typescript-eslint/typescript-eslint)
-- [Prettier](https://prettier.io/docs/en/index.html)
-- [Docker](https://docs.docker.com/reference/)
-- [Yarn](https://classic.yarnpkg.com/en/docs/)
+-   [Next.js](https://nextjs.org/docs)
+-   [NextAuth.js](https://github.com/nextauthjs/next-auth)
+-   [TypeORM](https://typeorm.io/#/)
+-   [React](https://reactjs.org/docs/getting-started.html)
+-   [Redux](https://redux-toolkit.js.org/introduction/quick-start)
+-   [Typescript](https://www.typescriptlang.org/docs/home.html)
+-   [Jest](https://jestjs.io/docs/en/getting-started.html)
+-   [Enzyme](https://enzymejs.github.io/enzyme/)
+-   [ESLint-Typescript](https://github.com/typescript-eslint/typescript-eslint)
+-   [Prettier](https://prettier.io/docs/en/index.html)
+-   [Docker](https://docs.docker.com/reference/)
+-   [Yarn](https://classic.yarnpkg.com/en/docs/)
 
 Created from [deep-c/nextjs-app-template](https://github.com/deep-c/nextjs-app-template)
-
