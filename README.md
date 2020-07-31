@@ -67,33 +67,23 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ```bash
 nextjs-app-template
 ├─ src
-│  ├─ common // Configuration and initialization etc files. E.g Store creation
-│  ├─ components // Common components used within multiple features
-│  ├─ features // Components that are larger and form the basis of a feature
-│  ├─ migrations // TypeORM migration files
-│  ├─ models // TypeORM models
-│  ├─ pages // NextJs Pages and APIs
+│  ├─ common # Configuration and initialization etc files. E.g Store creation
+│  ├─ components # Common components used within multiple features
+│  ├─ features # Components that are larger and form the basis of a feature
+│  ├─ migrations # TypeORM migration files
+│  ├─ models # TypeORM models
+│  ├─ pages # NextJs Pages and APIs
 │  │  ├─ _app.tsx
 │  │  ├─ api
-│  │  │  ├─ auth // NextAuthJs routes
-│  │  └─ index.tsx // Index Page
-│  └─ utils // Helper Utilities
-├─ tests // Unit tests
-├─ config // Configuration for project tools
+│  │  │  ├─ auth # NextAuthJs routes
+│  │  └─ index.tsx # Index Page
+│  └─ utils # Helper Utilities
+├─ tests # Unit tests
+├─ config # Configuration for project tools
 │  ├─ jest
-├─ public // Static assets
-├─ .env
-├─ .dockerignore
-├─ docker-compose.yml
-├─ .eslintrc.js
-├─ .prettierrc.js
-├─ next-env.d.ts
-├─ tsconfig.jest.json
-├─ tsconfig.json
-├─ tsconfig.typeorm.json
-├─ package.json
-└─ yarn.lock
-
+├─ public # Static assets
+├─ .env # Environment variables
+...
 ```
 
 ## Libraries and technologies used
