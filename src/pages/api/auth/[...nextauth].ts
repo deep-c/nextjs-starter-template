@@ -14,7 +14,7 @@ const options = {
         }),
     ],
     adapter: Adapters.TypeORM.Adapter(baseDbConfig, {
-        models: {
+        customModels: {
             User: Models.User,
         },
     }),
@@ -23,4 +23,5 @@ const options = {
     database: baseDbConfig,
 };
 
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 export default (req: NextApiRequest, res: NextApiResponse) => NextAuth(req, res, options);

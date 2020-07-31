@@ -2,8 +2,8 @@ import 'reflect-metadata';
 import React from 'react';
 import { signIn, signOut, useSession } from 'next-auth/client';
 
-export default function Page() {
-    const [session, loading] = useSession();
+const IndexPage: React.SFC<unknown> = () => {
+    const [session] = useSession();
 
     return (
         <>
@@ -21,4 +21,6 @@ export default function Page() {
             )}
         </>
     );
-}
+};
+
+export default IndexPage;
