@@ -4,7 +4,7 @@ import { Provider as ReduxProvider } from 'react-redux';
 import { Provider as AuthProvider } from 'next-auth/client';
 import store from '@/common/store';
 
-const MyApp: React.SFC<AppProps> = ({ Component, pageProps }: AppProps) => {
+const App: React.SFC<AppProps> = ({ Component, pageProps }: AppProps) => {
     return (
         <AuthProvider session={pageProps.session}>
             <ReduxProvider store={store}>
@@ -14,4 +14,4 @@ const MyApp: React.SFC<AppProps> = ({ Component, pageProps }: AppProps) => {
     );
 };
 
-export default MyApp;
+export default App;
