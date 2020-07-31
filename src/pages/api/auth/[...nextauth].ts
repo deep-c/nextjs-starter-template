@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import NextAuth from 'next-auth';
 import Providers from 'next-auth/providers';
 import Adapters from 'next-auth/adapters';
-import Models from '@/models';
+import User, { UserSchema } from '@/models/User';
 import { baseDbConfig } from '@/utils/config';
 
 const options = {
@@ -15,7 +15,10 @@ const options = {
     ],
     adapter: Adapters.TypeORM.Adapter(baseDbConfig, {
         customModels: {
-            User: Models.User,
+            User: {
+                model: User,
+                schema: UserSchema,
+            },
         },
     }),
     secret: process.env.SECRET,

@@ -54,11 +54,12 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ```bash
 nextjs-app-template
 ├─ src
-│  ├─ common # Configuration and initialization etc files. E.g Store creation
+│  ├─ common # Initializers, app config etc. E.g Store creation
 │  ├─ components # Common components used within multiple features
 │  ├─ features # Components that are larger and form the basis of a feature
 │  ├─ migrations # TypeORM migration files
 │  ├─ models # TypeORM models
+│  ├─ repositories # TypeORM model repositories
 │  ├─ pages # NextJs Pages and APIs
 │  │  ├─ _app.tsx
 │  │  ├─ api
