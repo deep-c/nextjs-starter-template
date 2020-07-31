@@ -13,37 +13,24 @@ Create .env file
 ```bash
 # General
 NODE_ENV=development
-
 SECRET=3qkjiJFQO(@)adqer/
-
 DEBUG=true
 
 # Auth
 NEXTAUTH_URL=http://localhost:3000
-
 AUTH0_CLIENT_ID=
-
 AUTH0_CLIENT_SECRET=
-
 AUTH0_DOMAIN=
 
 # Database
 TYPEORM_CONNECTION=postgres
-
 TYPEORM_HOST=db
-
 TYPEORM_USERNAME=postgres
-
 TYPEORM_PASSWORD=password
-
 TYPEORM_DATABASE=nextapp
-
 TYPEORM_PORT=5432
-
 TYPEORM_SYNCHRONIZE=true
-
 TYPEORM_LOGGING=true
-
 TYPEORM_DEBUG=true
 
 ```
