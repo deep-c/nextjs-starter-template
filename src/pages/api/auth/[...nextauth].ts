@@ -3,6 +3,9 @@ import NextAuth from 'next-auth';
 import Providers from 'next-auth/providers';
 import Adapters from 'next-auth/adapters';
 import User, { UserSchema } from '@/models/User';
+import Account, { AccountSchema } from '@/models/Account';
+import VerificationRequest, { VerificationRequestSchema } from '@/models/VerificationRequest';
+import Session, { SessionSchema } from '@/models/Session';
 import { baseDbConfig } from '@/utils/config';
 
 const options = {
@@ -18,6 +21,18 @@ const options = {
             User: {
                 model: User,
                 schema: UserSchema,
+            },
+            Account: {
+                model: Account,
+                schema: AccountSchema,
+            },
+            Session: {
+                model: Session,
+                schema: SessionSchema,
+            },
+            VerificationRequest: {
+                model: VerificationRequest,
+                schema: VerificationRequestSchema,
             },
         },
     }),

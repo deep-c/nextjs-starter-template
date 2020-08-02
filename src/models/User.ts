@@ -1,6 +1,6 @@
+import { EntitySchema } from 'typeorm';
 import { TypeORM } from 'next-auth/adapters';
 
-// Extend the built-in models using class inheritance
 export default class User extends TypeORM.Models.User.model {
     // You can extend the options in a model but you should not remove the base
     // properties or change the order of the built-in options on the constructor
@@ -9,7 +9,7 @@ export default class User extends TypeORM.Models.User.model {
     }
 }
 
-export const UserSchema = {
+export const UserSchema = new EntitySchema<User>({
     name: 'User',
     target: User,
     columns: {
@@ -24,4 +24,4 @@ export const UserSchema = {
             nullable: true,
         },
     },
-};
+});
