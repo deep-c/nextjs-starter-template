@@ -1,21 +1,50 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToMany, JoinTable } from 'typeorm';
-import { IsNotEmpty } from 'class-validator';
-import { Permission } from '@/models/Permission';
+import { EntitySchema } from 'typeorm';
+import Permission from '@/models/Permission';
+import User from '@/models/User';
 
-@Entity()
-export class Role {
-    @PrimaryGeneratedColumn()
+export default interface Role {
     id: number;
-
-    @Column({ unique: true, length: 50 })
-    @IsNotEmpty()
     name: string;
-
-    @Column({ length: 256 })
     description: string;
-
-    /* eslint-disable @typescript-eslint/no-unused-vars */
-    @ManyToMany((type) => Permission, (permission) => permission.roles)
-    @JoinTable()
+    users: User[];
     permissions: Permission[];
 }
+
+export default class Role {}
+
+export const roleSchema = new EntitySchema<Role>({
+    name: 'Role',
+    target: Role,
+    columns: {
+        id: {
+            type: 'int',
+            primary: true,
+            generated: true,
+        },
+        name: {
+            type: 'varchar',
+            length: 64,
+            unique: true,
+        },
+        description: {
+            type: 'varchar',
+            length: 256,
+        },
+    },
+    relations: {
+        users: {
+            type: 'many-to-many',
+            target: 'User',
+            joinTable: true,
+            cascade: true,
+            inverseSide: 'roles',
+        },
+        permissions: {
+            type: 'many-to-many',
+            target: 'Permission',
+            joinTable: true,
+            cascade: true,
+            inverseSide: 'roles',
+        },
+    },
+});

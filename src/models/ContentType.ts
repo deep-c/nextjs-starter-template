@@ -1,17 +1,35 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToMany } from 'typeorm';
-import { IsNotEmpty } from 'class-validator';
-import { Permission } from '@/models/Permission';
+import { EntitySchema } from 'typeorm';
+import Permission from '@/models/Permission';
 
-@Entity()
-export class ContentType {
-    @PrimaryGeneratedColumn()
+export default interface ContentType {
     id: number;
-
-    @Column({ unique: true, length: 256 })
-    @IsNotEmpty()
     model: string;
-
-    /* eslint-disable @typescript-eslint/no-unused-vars */
-    @ManyToMany((type) => Permission, (permission) => permission.objects)
     permissions: Permission[];
 }
+
+export default class ContentType {}
+
+export const contentTypeSchema = new EntitySchema<ContentType>({
+    name: 'ContentType',
+    target: ContentType,
+    columns: {
+        id: {
+            type: 'int',
+            primary: true,
+            generated: true,
+        },
+        model: {
+            type: 'varchar',
+            length: 64,
+            unique: true,
+        },
+    },
+    relations: {
+        permissions: {
+            target: 'Permission',
+            type: 'many-to-many',
+            joinTable: true,
+            cascade: true,
+        },
+    },
+});
