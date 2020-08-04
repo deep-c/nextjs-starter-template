@@ -82,7 +82,6 @@ nextjs-app-template
 ├─ tests # Unit tests
 │  └─ fixtures # TypesORM seed factories and seeds
 │  └─ src # Test files
-├─ tests # Unit tests
 ├─ e2e # End to end tests
 ├─ config # Configuration for project tools
 │  └─ jest
