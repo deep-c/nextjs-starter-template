@@ -36,7 +36,8 @@ TYPEORM_MIGRATIONS=src/migrations/*ts
 TYPEORM_MIGRATIONS_DIR=src/migrations
 TYPEORM_LOGGING=true
 TYPEORM_DEBUG=true
-
+TYPEORM_SEEDING_FACTORIES=fixtures/factories/*.ts
+TYPEORM_SEEDING_SEEDS=fixtures/seeds/*.ts
 ```
 
 Run the development environment:
@@ -46,6 +47,9 @@ docker-compose up -d
 
 # Run migrations
 docker-compose exec app npm run typeorm migration:run
+
+# Apply fixtures (if any)
+docker-compose exec app npm run seed:run
 
 # Currently there isnt a straightforward way to mount the node_modules folder on the host
 # Manually copy the folder such that Typescript and IDE's can find the type declarations
@@ -72,10 +76,15 @@ nextjs-app-template
 │  │  ├─ api
 │  │  │  ├─ auth # NextAuthJs routes
 │  │  └─ index.tsx # Index Page
+├─ fixtures # TypeORM seed
+│  ├─ factories # TypeORM seed factories
+│  └─ seeds # TypeORM seed seeders
 ├─ tests # Unit tests
+│  └─ fixtures # TypesORM seed factories and seeds
+│  └─ src # Test files
 ├─ e2e # End to end tests
 ├─ config # Configuration for project tools
-│  ├─ jest
+│  └─ jest
 ├─ public # Static assets
 ├─ .env # Environment variables
 ...
@@ -86,6 +95,7 @@ nextjs-app-template
 -   [Next.js](https://nextjs.org/docs)
 -   [NextAuth.js](https://github.com/nextauthjs/next-auth)
 -   [TypeORM](https://typeorm.io/#/)
+-   [TypeORM Seeding](https://github.com/w3tecch/typeorm-seeding)
 -   [React](https://reactjs.org/docs/getting-started.html)
 -   [Redux](https://redux-toolkit.js.org/introduction/quick-start)
 -   [Typescript](https://www.typescriptlang.org/docs/home.html)
