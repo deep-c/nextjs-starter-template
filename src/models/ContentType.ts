@@ -9,7 +9,7 @@ export default interface ContentType {
 
 export default class ContentType {}
 
-export const contentTypeSchema = new EntitySchema<ContentType>({
+export const ContentTypeSchema = new EntitySchema<ContentType>({
     name: 'ContentType',
     target: ContentType,
     columns: {

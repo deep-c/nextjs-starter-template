@@ -13,7 +13,7 @@ export default interface Permission {
 
 export default class Permission {}
 
-export const permissionSchema = new EntitySchema<Permission>({
+export const PermissionSchema = new EntitySchema<Permission>({
     name: 'Permission',
     target: Permission,
     columns: {

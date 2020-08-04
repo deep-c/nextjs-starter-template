@@ -12,7 +12,7 @@ export default interface Role {
 
 export default class Role {}
 
-export const roleSchema = new EntitySchema<Role>({
+export const RoleSchema = new EntitySchema<Role>({
     name: 'Role',
     target: Role,
     columns: {

@@ -2,11 +2,8 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import NextAuth from 'next-auth';
 import Providers from 'next-auth/providers';
 import Adapters from 'next-auth/adapters';
-import User, { UserSchema } from '@/models/User';
-import Account, { AccountSchema } from '@/models/Account';
-import VerificationRequest, { VerificationRequestSchema } from '@/models/VerificationRequest';
-import Session, { SessionSchema } from '@/models/Session';
-import { baseDbConfig } from '@/utils/config';
+import Models from '@/models';
+import { baseDbConfig } from '@/common/database';
 
 const options = {
     providers: [
@@ -18,22 +15,10 @@ const options = {
     ],
     adapter: Adapters.TypeORM.Adapter(baseDbConfig, {
         customModels: {
-            User: {
-                model: User,
-                schema: UserSchema,
-            },
-            Account: {
-                model: Account,
-                schema: AccountSchema,
-            },
-            Session: {
-                model: Session,
-                schema: SessionSchema,
-            },
-            VerificationRequest: {
-                model: VerificationRequest,
-                schema: VerificationRequestSchema,
-            },
+            User: Models.User,
+            Account: Models.Account,
+            Session: Models.Session,
+            VerificationRequest: Models.VerificationRequest,
         },
     }),
     secret: process.env.SECRET,
