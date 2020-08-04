@@ -44,6 +44,9 @@ Run the development environment:
 ```bash
 docker-compose up -d
 
+# Run migrations
+docker-compose exec app npm run typeorm migration:run
+
 # Currently there isnt a straightforward way to mount the node_modules folder on the host
 # Manually copy the folder such that Typescript and IDE's can find the type declarations
 # If changes are made to node_modules inside the container run the command again.
@@ -65,12 +68,12 @@ nextjs-app-template
 │  ├─ models # TypeORM models
 │  ├─ repositories # TypeORM model repositories
 │  ├─ pages # NextJs Pages and APIs
-│  │  ├─ _app.tsx
+│  │  ├─ _app.tsx # Root React component
 │  │  ├─ api
 │  │  │  ├─ auth # NextAuthJs routes
 │  │  └─ index.tsx # Index Page
-│  └─ utils # Helper Utilities
 ├─ tests # Unit tests
+├─ e2e # End to end tests
 ├─ config # Configuration for project tools
 │  ├─ jest
 ├─ public # Static assets
