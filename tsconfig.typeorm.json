@@ -1,24 +1,16 @@
 {
-   "compilerOptions": {
-      "lib": [
-         "es5",
-         "es6"
-      ],
-      "target": "es5",
-      "module": "commonjs",
-      "moduleResolution": "node",
-      "emitDecoratorMetadata": true,
-      "experimentalDecorators": true,
-      "sourceMap": true,
-      "baseUrl": "src",
-      "rootDir": "src"
-   },
-   "include": [
-      "src/models/*.ts",
-      "src/migrations/*ts",
-      "src/subscribers/*ts"
-   ],
-   "exclude": [
-      "node_modules"
-    ]
+    "compilerOptions": {
+        "lib": ["es5", "es6"],
+        "target": "es6",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "sourceMap": true,
+        "baseUrl": "src",
+        "paths": {
+            "@/*": ["*"]
+        }
+    },
+    "exclude": ["node_modules"]
 }

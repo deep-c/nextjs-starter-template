@@ -18,10 +18,6 @@ RUN set -ex; \
     yarn install; \
   fi;
 
-# Temp step since we use an unreleased version for testing.
-# https://github.com/nextauthjs/next-auth/pull/488
-RUN cd ./node_modules/next-auth && npm i && npm run build && cd ../..
-
 COPY . .
 
 RUN npm run build
