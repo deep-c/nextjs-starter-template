@@ -146,6 +146,12 @@ docker-compose exec app npm run seed:run
 
 ## Testing
 
+```
+docker-compose exec app npm run test
+# or
+docker-compose exec app npm run test:watch
+```
+
 Tests can be grouped using group prefixing using [jest-runner-groups](https://github.com/eugene-manuilov/jest-runner-groups) and run via:
 
 ```
