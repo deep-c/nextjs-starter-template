@@ -1,34 +1,35 @@
-version: "3.8"
+version: '3.8'
 
 services:
-  db:
-    image: postgres
-    volumes:
-      - pg-data:/var/lib/postgresql/data
-    restart: always
-    environment:
-      POSTGRES_USER: ${TYPEORM_USERNAME}
-      POSTGRES_PASSWORD: ${TYPEORM_PASSWORD}
-      POSTGRES_DB: ${TYPEORM_DATABASE}
+    db:
+        image: postgres
+        volumes:
+            - pg-data:/var/lib/postgresql/data
+        restart: always
+        environment:
+            POSTGRES_USER: ${TYPEORM_USERNAME}
+            POSTGRES_PASSWORD: ${TYPEORM_PASSWORD}
+            POSTGRES_DB: ${TYPEORM_DATABASE}
 
-  app:
-    build:
-      context: .
-      args:
-        NODE_ENV: ${NODE_ENV}
-    ports:
-      - 3000:3000
-    env_file: .env
-    command: npm run dev
-    init: true
-    volumes:
-      - yarn:/home/node/.cache/yarn
-      - /usr/src/app/node_modules
-      - .:/usr/src/app
-    restart: always
-    depends_on:
-      - db
+    app:
+        build:
+            context: .
+            args:
+                NODE_ENV: ${NODE_ENV}
+        ports:
+            - 3000:3000
+            - 5858:5858
+        env_file: .env
+        command: npm run dev
+        init: true
+        volumes:
+            - yarn:/home/node/.cache/yarn
+            - /usr/src/app/node_modules
+            - .:/usr/src/app
+        restart: always
+        depends_on:
+            - db
 
 volumes:
-  pg-data:
-  yarn:
+    pg-data:
+    yarn:

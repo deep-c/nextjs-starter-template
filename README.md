@@ -79,6 +79,8 @@ nextjs-app-template
 ├─ fixtures # TypeORM seed
 │  ├─ factories # TypeORM seed factories
 │  └─ seeds # TypeORM seed seeders
+├─ .coverage # Test coverage report directory
+│  └─ ...
 ├─ tests # Unit tests
 │  └─ fixtures # TypesORM seed factories and seeds
 │  └─ src # Test files
@@ -88,6 +90,76 @@ nextjs-app-template
 ├─ public # Static assets
 ├─ .env # Environment variables
 ...
+```
+
+## Development
+
+New libraries should be added through the container using `yarn` and after adding the new package the `node_modules` folder should be copied out to make any typings available and make your IDE happy.
+
+```
+docker-compose exec app yarn add
+sudo docker cp "$(docker-compose ps -q app)":/usr/src/app/node_modules .
+```
+
+New migrations can be generated using:
+
+```
+docker-compose exec app npm run typeorm migration:generate -n {name}
+```
+
+The last applied migration can be reverted using:
+
+```
+docker-compose exec app npm run typeorm migration:revert
+```
+
+See [TypeORM CLI](https://typeorm.io/#/using-cli) docs for more information on other options.
+
+To debug the dev server it can be attached to on port `5858`.
+
+The follwing launch.json can be added to debug via `vs-code`:
+
+```
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "attach",
+            "name": "Attach to dev",
+            "remoteRoot": "/usr/src/app",
+            "skipFiles": ["<node_internals>/**"],
+            "port": 5858,
+            "restart": true
+        }
+    ]
+}
+```
+
+## Fixtures
+
+Fixtures to load can be placed in the `fixtures` directory above and implmented according to [TypeORM Seeding](https://github.com/w3tecch/typeorm-seeding#-table-of-contents). Running the following command will apply them:
+
+```
+docker-compose exec app npm run seed:run
+```
+
+## Testing
+
+Tests can be grouped using group prefixing using [jest-runner-groups](https://github.com/eugene-manuilov/jest-runner-groups) and run via:
+
+```
+docker-compose exec app npm run test -- --group=prefix
+```
+
+Fixtures for integration tests can be placed in the fixtures folder and be setup using [TypeORM seeding](https://github.com/w3tecch/typeorm-seeding#-seeding-data-in-testing).
+
+Coverage can be generated into the `.coverage` folder using:
+
+```
+docker-compose exec app npm run test:coverage
+# or
+docker-compose exec app npm run test -- --coverage
 ```
 
 ## Libraries and technologies used

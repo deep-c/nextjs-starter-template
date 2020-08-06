@@ -1,4 +1,5 @@
 module.exports = {
+    runner: 'groups',
     collectCoverageFrom: ['src/**/*.{js,jsx,ts,tsx}', '!**/*.d.ts', '!**/node_modules/**'],
     coverageDirectory: '.coverage',
     moduleFileExtensions: ['ts', 'tsx', 'js'],
