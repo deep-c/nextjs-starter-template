@@ -115,7 +115,7 @@ docker-compose exec app npm run typeorm migration:revert
 
 See [TypeORM CLI](https://typeorm.io/#/using-cli) docs for more information on other options.
 
-To debug the dev server it can be attached to on port `5858`.
+To debug the dev server can be attached to on port `5858`.
 
 The follwing launch.json can be added to debug via `vs-code`:
 
