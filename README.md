@@ -42,7 +42,7 @@ TYPEORM_SEEDING_SEEDS=fixtures/seeds/*.ts
 
 Run the development environment:
 
-```bash
+```
 docker-compose up -d
 
 # Run migrations
@@ -81,7 +81,7 @@ nextjs-app-template
 │  └─ seeds # TypeORM seed seeders
 ├─ .coverage # Test coverage report directory
 │  └─ ...
-├─ tests # Unit tests
+├─ tests # Unit/Integration tests
 │  └─ fixtures # TypesORM seed factories and seeds
 │  └─ src # Test files
 ├─ e2e # End to end tests
