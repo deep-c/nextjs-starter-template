@@ -2,6 +2,7 @@
  * Index page
  *
  * @group pages/index
+ * @group unit
  */
 
 import * as React from 'react';
