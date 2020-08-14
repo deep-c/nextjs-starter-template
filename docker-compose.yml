@@ -25,6 +25,7 @@ services:
         volumes:
             - yarn:/home/node/.cache/yarn
             - /usr/src/app/node_modules
+            - /usr/src/app/.next
             - .:/usr/src/app
         restart: always
         depends_on:

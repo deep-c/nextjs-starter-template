@@ -4,6 +4,7 @@ import Providers from 'next-auth/providers';
 import Adapters from 'next-auth/adapters';
 import Models from '@/models';
 import { baseDbConfig } from '@/common/database';
+import { sentryMiddleware } from '@/common/middleware';
 
 const options = {
     providers: [
@@ -26,5 +27,4 @@ const options = {
     database: baseDbConfig,
 };
 
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-export default (req: NextApiRequest, res: NextApiResponse) => NextAuth(req, res, options);
+export default sentryMiddleware(async (req: NextApiRequest, res: NextApiResponse) => NextAuth(req, res, options));

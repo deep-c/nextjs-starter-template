@@ -16,6 +16,12 @@ NODE_ENV=development
 SECRET=3qkjiJFQO(@)adqer/
 DEBUG=true
 
+# Sentry
+NEXT_PUBLIC_SENTRY_DSN=
+SENTRY_ORG=
+SENTRY_PROJECT=
+SENTRY_AUTH_TOKEN=
+
 # Auth
 NEXTAUTH_URL=http://localhost:3000
 AUTH0_CLIENT_ID=
@@ -168,6 +174,10 @@ docker-compose exec app npm run test:coverage
 docker-compose exec app npm run test -- --coverage
 ```
 
+## Error Reporting
+
+Sentry is integrated and if the Sentry environment variables are set will get pushed. Errors are tracked by the git tag or git commit when building for production. Sentry will only work when running `NODE_ENV=production`.
+
 ## Libraries and technologies used
 
 -   [Next.js](https://nextjs.org/docs)
@@ -183,5 +193,6 @@ docker-compose exec app npm run test -- --coverage
 -   [Prettier](https://prettier.io/docs/en/index.html)
 -   [Docker](https://docs.docker.com/reference/)
 -   [Yarn](https://classic.yarnpkg.com/en/docs/)
+-   [Sentry.io](https://sentry.io/)
 
 Created from [deep-c/nextjs-app-template](https://github.com/deep-c/nextjs-app-template)
