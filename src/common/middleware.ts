@@ -4,7 +4,7 @@ import { NextApiRequest, NextApiResponse, NextApiHandler } from 'next';
 Sentry.init({ enabled: process.env.NODE_ENV === 'production', dsn: process.env.SENTRY_DSN });
 
 export const sentryMiddleware = (apiHandler: NextApiHandler) => {
-    return async (req: NextApiRequest, res: NextApiResponse) => {
+    return async (req: NextApiRequest, res: NextApiResponse): Promise<void> => {
         try {
             return await apiHandler(req, res);
         } catch (error) {
