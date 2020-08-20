@@ -20,6 +20,6 @@ RUN set -ex; \
 
 COPY . .
 
-RUN npm run build
+RUN npm run build --profile
 
 CMD [ "npm", "start" ]

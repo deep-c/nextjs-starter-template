@@ -15,6 +15,7 @@ Create .env file
 NODE_ENV=development
 SECRET=3qkjiJFQO(@)adqer/
 DEBUG=true
+APP_PORT=3000
 
 # Sentry
 NEXT_PUBLIC_SENTRY_DSN=

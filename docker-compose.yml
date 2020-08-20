@@ -17,7 +17,7 @@ services:
             args:
                 NODE_ENV: ${NODE_ENV}
         ports:
-            - 3000:3000
+            - ${APP_PORT}:${APP_PORT}
             - 5858:5858
         env_file: .env
         command: npm run dev
