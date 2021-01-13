@@ -11,11 +11,11 @@ COPY package*.json yarn.lock ./
 
 RUN set -ex; \
   if [ "$NODE_ENV" = "production" ]; then \
-    yarn install --no-cache --frozen-lockfile --production=false; \
+  yarn install --no-cache --frozen-lockfile --production=false; \
   elif [ "$NODE_ENV" = "test" ]; then \
-    yarn install --no-cache --frozen-lockfile; \
+  yarn install --no-cache --frozen-lockfile; \
   elif [ "$NODE_ENV" = "development" ]; then \
-    yarn install; \
+  yarn install; \
   fi;
 
 COPY . .
