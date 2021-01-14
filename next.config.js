@@ -1,7 +1,4 @@
 /* eslint-disable */
-// Use the hidden-source-map option when you don't want the source maps to be
-// publicly available on the servers, only to the error reporting
-const withSourceMaps = require('@zeit/next-source-maps')();
 const SentryWebpackPlugin = require('@sentry/webpack-plugin');
 const nextBuildId = require('next-build-id');
 
@@ -9,11 +6,13 @@ const buildIdOptions = { dir: __dirname, describe: true };
 const { NEXT_PUBLIC_SENTRY_DSN: SENTRY_DSN, SENTRY_ORG, SENTRY_PROJECT, SENTRY_AUTH_TOKEN, NODE_ENV } = process.env;
 
 process.env.SENTRY_DSN = SENTRY_DSN;
+const basePath = '';
 
-module.exports = withSourceMaps({
+module.exports = {
     generateBuildId: () => nextBuildId(buildIdOptions),
-    serverRuntimeConfig: {
-        rootDir: __dirname,
+    productionBrowserSourceMaps: true,
+    env: {
+        NEXT_PUBLIC_BUILD_ID: nextBuildId.sync(buildIdOptions),
     },
     webpack: (config, options) => {
         // In `pages/_app.js`, Sentry is imported from @sentry/browser. While
@@ -34,6 +33,14 @@ module.exports = withSourceMaps({
             config.resolve.alias['@sentry/node'] = '@sentry/browser';
         }
 
+        // Define an environment variable so source code can check whether or not
+        // it's running on the server so we can correctly initialize Sentry
+        config.plugins.push(
+            new options.webpack.DefinePlugin({
+                'process.env.NEXT_IS_SERVER': JSON.stringify(options.isServer.toString()),
+            }),
+        );
+
         // When all the Sentry configuration env variables are available/configured
         // The Sentry webpack plugin gets pushed to the webpack plugins to build
         // and upload the source maps to sentry.
@@ -45,7 +52,7 @@ module.exports = withSourceMaps({
                     include: '.next',
                     ignore: ['node_modules'],
                     stripPrefix: ['webpack://_N_E/'],
-                    urlPrefix: '~/_next',
+                    urlPrefix: `~${basePath}/_next`,
                     release: nextBuildId.sync(buildIdOptions),
                 }),
             );
@@ -53,4 +60,5 @@ module.exports = withSourceMaps({
 
         return config;
     },
-});
+    basePath,
+};

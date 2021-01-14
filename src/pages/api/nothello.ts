@@ -1,8 +1,10 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { sentryMiddleware } from '@/common/middleware';
+import { initSentry } from 'common/sentry';
 
-export default sentryMiddleware(async (req: NextApiRequest, res: NextApiResponse) => {
+initSentry();
+
+export default async (req: NextApiRequest, res: NextApiResponse): Promise<void> => {
     res.statusCode = 200;
     throw new Error('api test error');
     res.json({ name: 'John Doe' });
-});
+};

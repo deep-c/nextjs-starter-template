@@ -19,7 +19,7 @@ module.exports = {
     globals: {
         'ts-jest': {
             babelConfig: true,
-            tsConfig: '<rootDir>tsconfig.jest.json',
+            tsconfig: '<rootDir>tsconfig.jest.json',
         },
     },
     preset: 'ts-jest/presets/js-with-ts',

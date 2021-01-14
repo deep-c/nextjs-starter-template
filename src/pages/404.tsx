@@ -1,7 +1,7 @@
 import React from 'react';
 import Error from 'next/error';
 
-const NotFound: React.SFC = () => {
+const NotFound: React.FC = () => {
     return <Error statusCode={404} />;
 };
 
