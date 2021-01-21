@@ -29,9 +29,9 @@
     },
     "dependencies": {
         "@reduxjs/toolkit": "1.5.0",
-        "@sentry/browser": "6.0.0",
-        "@sentry/integrations": "6.0.0",
-        "@sentry/node": "6.0.0",
+        "@sentry/browser": "6.0.1",
+        "@sentry/integrations": "6.0.1",
+        "@sentry/node": "6.0.1",
         "@sentry/webpack-plugin": "1.14.0",
         "next": "latest",
         "next-auth": "3.1.0",
