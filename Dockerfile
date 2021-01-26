@@ -5,7 +5,7 @@ ENV NODE_ENV=$NODE_ENV
 
 WORKDIR /usr/src/app
 
-RUN apk add --no-cache yarn
+RUN apk add --update-cache yarn
 
 COPY package*.json yarn.lock ./
 
@@ -20,6 +20,6 @@ RUN set -ex; \
 
 COPY . .
 
-RUN npm run build --profile
+RUN yarn run build --profile
 
-CMD [ "npm", "start" ]
+CMD [ "yarn", "run", "start" ]

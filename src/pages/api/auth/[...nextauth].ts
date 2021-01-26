@@ -4,7 +4,9 @@ import Providers from 'next-auth/providers';
 import Adapters from 'next-auth/adapters';
 import Models from '@/models';
 import { baseDbConfig } from '@/common/database';
-import { sentryMiddleware } from '@/common/middleware';
+import { initSentry } from 'common/sentry';
+
+initSentry();
 
 const options = {
     providers: [
@@ -27,4 +29,4 @@ const options = {
     database: baseDbConfig,
 };
 
-export default sentryMiddleware(async (req: NextApiRequest, res: NextApiResponse) => NextAuth(req, res, options));
+export default async (req: NextApiRequest, res: NextApiResponse) => NextAuth(req, res, options);
