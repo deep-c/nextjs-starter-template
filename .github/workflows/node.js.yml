@@ -35,11 +35,11 @@ jobs:
                 key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
                 restore-keys: |
                   ${{ runner.os }}-yarn-
-            - run: yarn install --frozen-lockfile --check-files
-            - run: yarn run build
-            - run: yarn run test
             - uses: actions/cache@v2
               id: cache-build
               with:
                 path: ${{ github.workspace }}/.next/cache
-                key: ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}
+                key: ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}                  
+            - run: yarn install --frozen-lockfile --check-files
+            - run: yarn run build
+            - run: yarn run test
