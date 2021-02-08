@@ -1,10 +1,11 @@
 import { EntitySchema } from 'typeorm';
-import { TypeORM } from 'next-auth/adapters';
+import { TypeORMVerificationRequestModel } from 'next-auth/adapters';
+import { UserSchema as OrigSchema } from 'next-auth/dist/adapters/typeorm/models/user';
 
-export default class VerificationRequest extends TypeORM.Models.VerificationRequest.model {
+export default class VerificationRequest extends TypeORMVerificationRequestModel {
     // You can extend the options in a model but you should not remove the base
     // properties or change the order of the built-in options on the constructor
-    constructor(identifier: string, token: string, expires: string) {
+    constructor(identifier: string, token: string, expires: Date) {
         super(identifier, token, expires);
     }
 }
@@ -13,6 +14,6 @@ export const VerificationRequestSchema = new EntitySchema<VerificationRequest>({
     name: 'VerificationRequest',
     target: VerificationRequest,
     columns: {
-        ...TypeORM.Models.VerificationRequest.schema.columns,
+        ...OrigSchema.columns,
     },
 });

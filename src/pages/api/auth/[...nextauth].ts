@@ -1,4 +1,3 @@
-import { NextApiRequest, NextApiResponse } from 'next';
 import NextAuth from 'next-auth';
 import Providers from 'next-auth/providers';
 import Adapters from 'next-auth/adapters';
@@ -8,7 +7,7 @@ import { initSentry } from 'common/sentry';
 
 initSentry();
 
-const options = {
+export default NextAuth(req, res, {
     providers: [
         Providers.Auth0({
             clientId: process.env.AUTH0_CLIENT_ID,
@@ -27,6 +26,4 @@ const options = {
     secret: process.env.SECRET,
     debug: process.env.DEBUG,
     database: baseDbConfig,
-};
-
-export default async (req: NextApiRequest, res: NextApiResponse) => NextAuth(req, res, options);
+});
