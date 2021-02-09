@@ -34,7 +34,7 @@
         "@sentry/node": "6.1.0",
         "@sentry/webpack-plugin": "1.14.0",
         "next": "latest",
-        "next-auth": "3.2.0",
+        "next-auth": "3.3.0",
         "next-build-id": "3.0.0",
         "pg": "8.5.1",
         "react": "17.0.1",
