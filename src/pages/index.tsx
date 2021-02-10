@@ -10,13 +10,27 @@ const IndexPage: React.SFC<unknown> = () => {
             {!session && (
                 <>
                     Not signed in! <br />
-                    <button onClick={signIn}>Sign in</button>
+                    <button
+                        onClick={(e) => {
+                            e.preventDefault();
+                            signIn();
+                        }}
+                    >
+                        Sign in
+                    </button>
                 </>
             )}
             {session && (
                 <>
                     Signed in as {session.user.email}! <br />
-                    <button onClick={signOut}>Sign out</button>
+                    <button
+                        onClick={(e) => {
+                            e.preventDefault();
+                            signOut();
+                        }}
+                    >
+                        Sign out
+                    </button>
                 </>
             )}
         </>

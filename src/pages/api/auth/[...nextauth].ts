@@ -1,13 +1,14 @@
-import NextAuth from 'next-auth';
+import NextAuth from 'next-auth/dist/server';
 import Providers from 'next-auth/providers';
-import Adapters from 'next-auth/adapters';
+import Adapters from 'next-auth/dist/adapters/index';
 import Models from '@/models';
 import { baseDbConfig } from '@/common/database';
 import { initSentry } from 'common/sentry';
+import { ConnectionOptions } from 'typeorm';
 
 initSentry();
 
-export default NextAuth(req, res, {
+export default NextAuth({
     providers: [
         Providers.Auth0({
             clientId: process.env.AUTH0_CLIENT_ID,
@@ -15,12 +16,9 @@ export default NextAuth(req, res, {
             domain: process.env.AUTH0_DOMAIN,
         }),
     ],
-    adapter: Adapters.TypeORM.Adapter(baseDbConfig, {
-        customModels: {
+    adapter: Adapters.TypeORM.Adapter(baseDbConfig as ConnectionOptions, {
+        models: {
             User: Models.User,
-            Account: Models.Account,
-            Session: Models.Session,
-            VerificationRequest: Models.VerificationRequest,
         },
     }),
     secret: process.env.SECRET,
