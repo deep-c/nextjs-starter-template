@@ -3,17 +3,16 @@ import Providers from 'next-auth/providers';
 import Adapters from 'next-auth/dist/adapters/index';
 import Models from '@/models';
 import { baseDbConfig } from '@/common/database';
-import { initSentry } from 'common/sentry';
+import { initSentry } from '@/common/sentry';
 import { ConnectionOptions } from 'typeorm';
 
 initSentry();
 
 export default NextAuth({
     providers: [
-        Providers.Auth0({
-            clientId: process.env.AUTH0_CLIENT_ID,
-            clientSecret: process.env.AUTH0_CLIENT_SECRET,
-            domain: process.env.AUTH0_DOMAIN,
+        Providers.Google({
+            clientId: process.env.GOOGLE_CLIENT_ID,
+            clientSecret: process.env.GOOGLE_CLIENT_SECRET,
         }),
     ],
     adapter: Adapters.TypeORM.Adapter(baseDbConfig as ConnectionOptions, {
