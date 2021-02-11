@@ -1,26 +1,26 @@
 import { EntitySchema } from 'typeorm';
-import { TypeORM } from 'next-auth/adapters';
+import { TypeORMAccountModel } from 'next-auth/adapters';
+import Adapters from 'next-auth/dist/adapters/index';
 
-export default class Account extends TypeORM.Models.Account.model {
-    // You can extend the options in a model but you should not remove the base
-    // properties or change the order of the built-in options on the constructor
+export default class Account extends (Adapters.TypeORM.Models.Account.model as typeof TypeORMAccountModel) {
     constructor(
-        userId: string,
+        userId: number,
         providerId: string,
         providerType: string,
         providerAccountId: string,
         refreshToken: string,
         accessToken: string,
-        accessTokenExpires: string,
+        accessTokenExpires: Date,
     ) {
         super(userId, providerId, providerType, providerAccountId, refreshToken, accessToken, accessTokenExpires);
     }
 }
 
 export const AccountSchema = new EntitySchema<Account>({
+    ...Adapters.TypeORM.Models.Account.schema,
     name: 'Account',
     target: Account,
     columns: {
-        ...TypeORM.Models.Account.schema.columns,
+        ...Adapters.TypeORM.Models.Account.schema.columns,
     },
 });

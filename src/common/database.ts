@@ -1,4 +1,10 @@
-import { createConnection, getConnection as getDbConnection, Connection, ConnectionOptions } from 'typeorm';
+import {
+    createConnection,
+    getConnection as getDbConnection,
+    Connection,
+    ConnectionOptions,
+    DatabaseType,
+} from 'typeorm';
 
 const entitiesChanged = (prevEntities, newEntities) => {
     if (prevEntities.length !== newEntities.length) return true;
@@ -20,13 +26,13 @@ const updateConnectionEntities = async (connection, entities) => {
 };
 
 export const baseDbConfig = {
-    type: process.env.TYPEORM_CONNECTION,
+    type: process.env.TYPEORM_CONNECTION as DatabaseType,
     host: process.env.TYPEORM_HOST,
-    port: process.env.TYPEORM_PORT,
+    port: (process.env.TYPEORM_PORT as unknown) as number,
     username: process.env.TYPEORM_USERNAME,
     password: process.env.TYPEORM_PASSWORD,
     database: process.env.TYPEORM_DATABASE,
-    synchronize: process.env.TYPEORM_SYNCHRONIZE,
+    synchronize: (process.env.TYPEORM_SYNCHRONIZE as unknown) as boolean,
 };
 
 let connection = null;

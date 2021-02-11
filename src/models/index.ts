@@ -1,9 +1,6 @@
 import User, { UserSchema } from './User';
-import Account, { AccountSchema } from './Account';
-import ContentType, { ContentTypeSchema } from './ContentType';
-import Permission, { PermissionSchema } from './Permission';
-import Role, { RoleSchema } from './Role';
 import Session, { SessionSchema } from './Session';
+import Account, { AccountSchema } from './Account';
 import VerificationRequest, { VerificationRequestSchema } from './VerificationRequest';
 
 export default {
@@ -11,25 +8,13 @@ export default {
         model: User,
         schema: UserSchema,
     },
-    Account: {
-        model: Account,
-        schema: AccountSchema,
-    },
-    ContentType: {
-        model: ContentType,
-        schema: ContentTypeSchema,
-    },
-    Permission: {
-        model: Permission,
-        schema: PermissionSchema,
-    },
-    Role: {
-        model: Role,
-        schema: RoleSchema,
-    },
     Session: {
         model: Session,
         schema: SessionSchema,
+    },
+    Account: {
+        model: Account,
+        schema: AccountSchema,
     },
     VerificationRequest: {
         model: VerificationRequest,
