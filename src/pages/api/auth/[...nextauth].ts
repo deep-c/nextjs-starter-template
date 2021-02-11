@@ -19,6 +19,9 @@ export default NextAuth({
     adapter: Adapters.TypeORM.Adapter(baseDbConfig as ConnectionOptions, {
         models: {
             User: Models.User,
+            Session: Models.Session,
+            Account: Models.Account,
+            VerificationRequest: Models.VerificationRequest,
         },
     }),
     secret: process.env.SECRET,

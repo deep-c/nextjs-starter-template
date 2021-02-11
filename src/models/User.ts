@@ -9,6 +9,7 @@ export default class User extends (Adapters.TypeORM.Models.User.model as typeof 
 }
 
 export const UserSchema = new EntitySchema<User>({
+    ...Adapters.TypeORM.Models.User.schema,
     name: 'User',
     target: User,
     columns: {
