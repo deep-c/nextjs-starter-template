@@ -45,7 +45,7 @@
         "typeorm-seeding": "1.6.1"
     },
     "devDependencies": {
-        "@babel/core": "7.12.13",
+        "@babel/core": "7.12.16",
         "@types/enzyme": "3.10.8",
         "@types/enzyme-adapter-react-16": "1.0.6",
         "@types/faker": "5.1.6",
