@@ -1,10 +1,10 @@
+import { ConnectionOptions } from 'typeorm';
 import NextAuth from 'next-auth/dist/server';
 import Providers from 'next-auth/providers';
 import Adapters from 'next-auth/dist/adapters/index';
 import Models from '@/models';
 import { baseDbConfig } from '@/common/database';
 import { initSentry } from '@/common/sentry';
-import { ConnectionOptions } from 'typeorm';
 
 initSentry();
 
