@@ -1,4 +1,3 @@
-import 'reflect-metadata';
 import NextAuth from 'next-auth/dist/server';
 import Providers from 'next-auth/providers';
 import Adapters from 'next-auth/dist/adapters/index';

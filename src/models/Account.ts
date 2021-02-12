@@ -1,4 +1,3 @@
-import { EntitySchema } from 'typeorm';
 import { TypeORMAccountModel } from 'next-auth/adapters';
 import Adapters from 'next-auth/dist/adapters/index';
 
@@ -16,11 +15,10 @@ export default class Account extends (Adapters.TypeORM.Models.Account.model as t
     }
 }
 
-export const AccountSchema = new EntitySchema<Account>({
-    ...Adapters.TypeORM.Models.Account.schema,
+export const AccountSchema = {
     name: 'Account',
     target: Account,
     columns: {
         ...Adapters.TypeORM.Models.Account.schema.columns,
     },
-});
+};

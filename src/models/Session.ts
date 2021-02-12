@@ -1,4 +1,3 @@
-import { EntitySchema } from 'typeorm';
 import { TypeORMSessionModel } from 'next-auth/adapters';
 import Adapters from 'next-auth/dist/adapters/index';
 
@@ -8,11 +7,10 @@ export default class Session extends (Adapters.TypeORM.Models.Session.model as t
     }
 }
 
-export const SessionSchema = new EntitySchema<Session>({
-    ...Adapters.TypeORM.Models.Session.schema,
+export const SessionSchema = {
     name: 'Session',
     target: Session,
     columns: {
         ...Adapters.TypeORM.Models.Session.schema.columns,
     },
-});
+};

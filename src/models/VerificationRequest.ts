@@ -1,4 +1,3 @@
-import { EntitySchema } from 'typeorm';
 import { TypeORMVerificationRequestModel } from 'next-auth/adapters';
 import Adapters from 'next-auth/dist/adapters/index';
 
@@ -9,11 +8,10 @@ export default class VerificationRequest extends (Adapters.TypeORM.Models.Verifi
     }
 }
 
-export const VerificationRequestSchema = new EntitySchema<VerificationRequest>({
-    ...Adapters.TypeORM.Models.VerificationRequest.schema,
+export const VerificationRequestSchema = {
     name: 'VerificationRequest',
     target: VerificationRequest,
     columns: {
         ...Adapters.TypeORM.Models.VerificationRequest.schema.columns,
     },
-});
+};

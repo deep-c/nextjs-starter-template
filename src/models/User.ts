@@ -1,4 +1,3 @@
-import { EntitySchema } from 'typeorm';
 import { TypeORMUserModel } from 'next-auth/adapters';
 import Adapters from 'next-auth/dist/adapters/index';
 
@@ -8,8 +7,7 @@ export default class User extends (Adapters.TypeORM.Models.User.model as typeof 
     }
 }
 
-export const UserSchema = new EntitySchema<User>({
-    ...Adapters.TypeORM.Models.User.schema,
+export const UserSchema = {
     name: 'User',
     target: User,
     columns: {
@@ -19,4 +17,4 @@ export const UserSchema = new EntitySchema<User>({
             nullable: true,
         },
     },
-});
+};
