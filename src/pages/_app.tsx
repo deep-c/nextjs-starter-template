@@ -1,3 +1,4 @@
+import 'reflect-metadata';
 import React from 'react';
 import type { AppProps } from 'next/app';
 import { Provider as ReduxProvider } from 'react-redux';
