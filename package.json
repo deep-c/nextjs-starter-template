@@ -15,12 +15,8 @@
         "test:coverage": "jest --config=config/jest/jest.config.js --coverage",
         "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
         "seed:config": "cross-env TS_NODE_PROJECT=tsconfig.typeorm.json TS_NODE_TRANSPILE_ONLY=true ts-node -r tsconfig-paths/register ./node_modules/typeorm-seeding/dist/cli.js config",
-        "seed:run": "cross-env TS_NODE_PROJECT=tsconfig.typeorm.json TS_NODE_TRANSPILE_ONLY=true ts-node -r tsconfig-paths/register ./node_modules/typeorm-seeding/dist/cli.js seed"
-    },
-    "husky": {
-        "hooks": {
-            "pre-commit": "lint-staged && npm run test"
-        }
+        "seed:run": "cross-env TS_NODE_PROJECT=tsconfig.typeorm.json TS_NODE_TRANSPILE_ONLY=true ts-node -r tsconfig-paths/register ./node_modules/typeorm-seeding/dist/cli.js seed",
+        "postinstall": "husky install"
     },
     "lint-staged": {
         "*.{js,ts,tsx}": [
