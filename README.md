@@ -24,11 +24,15 @@ SENTRY_ORG=
 SENTRY_PROJECT=
 SENTRY_AUTH_TOKEN=
 
-# Auth
+# NextAuth
 NEXTAUTH_URL=http://localhost:3000
+# Note: Auth (Use and create vars for specific providers you use). E.g
 AUTH0_CLIENT_ID=
 AUTH0_CLIENT_SECRET=
 AUTH0_DOMAIN=
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+
 
 # Database
 TYPEORM_CONNECTION=postgres
