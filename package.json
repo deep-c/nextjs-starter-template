@@ -42,7 +42,7 @@
     },
     "devDependencies": {
         "@babel/core": "7.13.1",
-        "@sentry/webpack-plugin": "1.14.1",
+        "@sentry/webpack-plugin": "1.15.1",
         "@types/enzyme": "3.10.8",
         "@types/enzyme-adapter-react-16": "1.0.6",
         "@types/faker": "5.1.7",
